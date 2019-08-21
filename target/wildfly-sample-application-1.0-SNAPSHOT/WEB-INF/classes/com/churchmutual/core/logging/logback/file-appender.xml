@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+    <springProperty name="wildflyLogPath" source="jboss.server.log.dir"/>
+
+    <if condition='isNull("wildflyLogPath")'>
+        <then>
+            <property name="LOG_PATH" value="${LOG_PATH:-./log}"/>
+        </then>
+        <else>
+            <property name="LOG_PATH" value="${LOG_PATH:-${wildflyLogPath}/${applicationName}}"/>
+        </else>
+    </if>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${applicationName}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${LOG_PATH}/${applicationName}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- each file should be at most 10MB, keep 25 days worth of history, but at most 2GB -->
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>25</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+</included>

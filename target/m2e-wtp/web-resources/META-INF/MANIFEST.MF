@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: wildfly-sample-application
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: va001811
+Implementation-Vendor-Id: com.churchmutual.policy
+Build-Jdk: 1.8.0_45
+Implementation-URL: http://projects.spring.io/spring-boot/wildfly-samp
+ le-application/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

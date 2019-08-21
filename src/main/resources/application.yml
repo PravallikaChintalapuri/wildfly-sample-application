@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: @project.artifactId@
+
+
+server:
+  context-path: /${spring.application.name}

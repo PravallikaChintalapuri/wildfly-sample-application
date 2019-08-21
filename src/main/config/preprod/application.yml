@@ -1,0 +1,16 @@
+spring:
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+app:
+  security:
+    role-mappings:
+      - role: READ
+        groups:
+          - Phoenix Test - Read
+      - role: ACTUATOR
+        groups:
+          - Java Developers
+    auth-providers:
+      - domain: ad.churchmutual.com
+        urls: ldap://ad.churchmutual.com:389/ ldap://merldap1.ad.churchmutual.com:389/ ldap://merldap2.ad.churchmutual.com:389/

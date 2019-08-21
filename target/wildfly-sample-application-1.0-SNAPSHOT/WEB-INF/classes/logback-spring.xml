@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty name="applicationName" source="spring.application.name" />
+
+    <contextName>${applicationName}</contextName>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="com/churchmutual/core/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <logger name="com.churchmutual" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+</configuration>
